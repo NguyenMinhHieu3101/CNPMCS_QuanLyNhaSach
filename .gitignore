@@ -404,3 +404,5 @@ UngDungQuanLyNhaSach/.vs
 UngDungQuanLyNhaSach/UngDungQuanLyNhaSach/bin
 UngDungQuanLyNhaSach/UngDungQuanLyNhaSach/obj
 
+*.dll
+*.pdb
