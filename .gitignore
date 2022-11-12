@@ -399,6 +399,8 @@ FodyWeavers.xsd
 .vs
 bin
 obj
-QuanLyNhaSach/.vs
-QuanLyNhaSach/UngDungQuanLyNhaSach/bin
-QuanLyNhaSach/UngDungQuanLyNhaSach/obj
+.vs
+UngDungQuanLyNhaSach/.vs
+UngDungQuanLyNhaSach/UngDungQuanLyNhaSach/bin
+UngDungQuanLyNhaSach/UngDungQuanLyNhaSach/obj
+
