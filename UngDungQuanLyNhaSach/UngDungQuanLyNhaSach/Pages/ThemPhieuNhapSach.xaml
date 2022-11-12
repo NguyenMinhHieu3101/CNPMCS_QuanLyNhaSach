@@ -5,10 +5,127 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UngDungQuanLyNhaSach.Pages"
       mc:Ignorable="d" 
+      Background="White"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ThemPhieuNhapSach">
 
-    <Grid>
-        
-    </Grid>
+    <Page.Resources>
+
+        <Style x:Key="notCalledBorder" TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Black" />
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="Header1" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style TargetType="DockPanel">
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="5,5"/>
+        </Style>
+
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+    </Page.Resources>
+
+    <StackPanel Margin="30,10,0,10" HorizontalAlignment="Left" Width="745">
+        <StackPanel Height="102">
+            <TextBlock Text="Thông tin phiếu" 
+                   Style="{StaticResource Header1}"/>
+            <StackPanel Width="728" Height="95">
+                <DockPanel LastChildFill="True" Width="708">
+                    <DockPanel Width="340">
+                        <TextBlock Text="Ngày Lập Phiếu:" Width="130"/>
+                        <DatePicker Width="200" Height="24"/>
+                    </DockPanel>
+                    <TextBlock Text="              Người Giao:" Width="152" HorizontalAlignment="Right"/>
+                    <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Width="211"/>
+                </DockPanel>
+                <DockPanel LastChildFill="True" Width="340">
+                    <TextBlock Text="Ngày Nhập Sách:" Width="130"/>
+                    <DatePicker Width="200" Height="24"/>
+                </DockPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Height="173" Width="741">
+            <TextBlock Text="Thông tin sách nhập" 
+                   Style="{StaticResource Header1}"/>
+            <StackPanel Width="731" Height="181">
+                <DockPanel LastChildFill="True" Width="723">
+                    <TextBlock Text="Gợi ý tên sách bán chạy tháng trước: " Width="269"/>
+                    <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Width="421"/>
+                </DockPanel>
+                <DockPanel Width="724">
+                    <DockPanel LastChildFill="True" Width="240">
+                        <TextBlock Text="Tên sách:" Width="80"/>
+                        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Width="110"/>
+                    </DockPanel>
+                    <DockPanel LastChildFill="True" Width="240">
+                        <TextBlock Text="Thể loại:" Width="80"/>
+                        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Width="110"/>
+                    </DockPanel>
+                    <DockPanel LastChildFill="True" Width="240">
+                        <TextBlock Text="Đơn giá:" Width="80"/>
+                        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Width="130"/>
+                    </DockPanel>
+                </DockPanel>
+                <DockPanel Width="724">
+                    <DockPanel LastChildFill="True" Width="240">
+                        <TextBlock Text="NxB:" Width="80"/>
+                        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Width="110"/>
+                    </DockPanel>
+                    <DockPanel LastChildFill="True" Width="240">
+                        <TextBlock Text="Năm XB:" Width="80"/>
+                        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Width="110"/>
+                    </DockPanel>
+                    <DockPanel LastChildFill="True" Width="240">
+                        <TextBlock Text="Số lượng:" Width="80"/>
+                        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Width="130"/>
+                    </DockPanel>
+                </DockPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Height="40" HorizontalAlignment="Right" Width="193">
+            <Button Content="Thêm" 
+                        Height="37" 
+                        Width="128"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Style="{StaticResource AddButton}"/>
+        </StackPanel>
+
+    </StackPanel>
 </Page>
+
